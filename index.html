@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CA Cattle Bakery Recycling | San Antonio, TX</title>
+<meta name="description" content="CA Cattle Company Bakery Recycling Division turns bakery and food by-products into cattle feed. We pay for your by-products and haul them away. San Antonio, Texas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --grain:#E3A72F;      /* wheat / feed */
+    --grain-deep:#B9821A;
+    --ink:#1C2B33;        /* trailer steel */
+    --concrete:#EEF0EE;   /* plant floor */
+    --sage:#4F6B4C;       /* pasture */
+    --white:#FFFFFF;
+    --muted:#55646B;
+    --display:"Archivo", "Arial Narrow", sans-serif;
+    --body:"Public Sans", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{font-family:var(--body);color:var(--ink);background:var(--white);font-size:18px;line-height:1.6}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--grain);outline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* Header */
+  header.top{background:var(--ink);color:var(--white)}
+  header.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px;gap:16px}
+  .brand{font-family:var(--display);font-weight:800;font-stretch:110%;font-size:18px;text-decoration:none;letter-spacing:.01em}
+  .brand span{font-weight:400;opacity:.75}
+  .top-call{font-weight:600;text-decoration:none;white-space:nowrap;font-size:16px}
+  .top-call:hover{color:var(--grain)}
+
+  /* Hero */
+  .hero{background:var(--grain);padding:72px 0 0;overflow:hidden}
+  .hero h1{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(38px,8.4vw,112px);overflow-wrap:break-word;line-height:.92;letter-spacing:-.015em;max-width:12ch}
+  .hero p.lede{font-size:clamp(18px,2vw,22px);max-width:40ch;margin-top:28px;font-weight:500}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .btn{display:inline-block;font-family:var(--display);font-weight:700;font-stretch:105%;font-size:18px;text-decoration:none;padding:16px 26px;border:3px solid var(--ink)}
+  .btn-dark{background:var(--ink);color:var(--white)}
+  .btn-dark:hover{background:var(--white);color:var(--ink)}
+  .btn-line{color:var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--grain)}
+
+  /* The flow strip: bakery -> plant -> cattle */
+  .flow{margin-top:64px;background:var(--ink);color:var(--white)}
+  .flow ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr)}
+  .flow li{padding:28px 24px 30px;border-left:1px solid rgba(255,255,255,.18);position:relative}
+  .flow li:first-child{border-left:0;padding-left:0}
+  .flow b{display:block;font-family:var(--display);font-stretch:115%;font-weight:800;font-size:22px;color:var(--grain)}
+  .flow span{font-size:16px;opacity:.85}
+  .flow li:not(:last-child)::after{content:"";position:absolute;right:-11px;top:50%;width:20px;height:20px;background:var(--grain);transform:translateY(-50%) rotate(45deg);z-index:1}
+
+  /* Sections */
+  section{padding:88px 0}
+  h2{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(32px,4.4vw,52px);line-height:1.02;letter-spacing:-.01em;max-width:18ch}
+  .intro{font-size:20px;max-width:56ch;margin-top:18px;color:var(--muted)}
+
+  /* Suppliers */
+  .suppliers{background:var(--white)}
+  .split{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;margin-top:48px;align-items:start}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-top:2px solid var(--concrete)}
+  .steps li:last-child{border-bottom:2px solid var(--concrete)}
+  .steps li::before{content:counter(s);font-family:var(--display);font-weight:900;font-stretch:125%;font-size:40px;line-height:1;color:var(--grain-deep)}
+  .steps h3{font-family:var(--display);font-weight:700;font-stretch:105%;font-size:21px;line-height:1.2}
+  .steps p{font-size:17px;color:var(--muted);margin-top:4px}
+
+  .take{background:var(--concrete);padding:32px}
+  .take h3{font-family:var(--display);font-weight:800;font-stretch:110%;font-size:24px}
+  .take ul{list-style:none;margin-top:16px;columns:2;column-gap:24px}
+  .take li{padding:7px 0;border-bottom:1px solid #d6dbd8;break-inside:avoid;font-weight:500}
+  .take p{font-size:16px;color:var(--muted);margin-top:18px}
+
+  /* Feeders */
+  .feeders{background:var(--sage);color:var(--white)}
+  .feeders .intro{color:rgba(255,255,255,.88)}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border-top:2px solid rgba(255,255,255,.35)}
+  .facts div{padding:26px 28px 0 0}
+  .facts h3{font-family:var(--display);font-weight:700;font-stretch:108%;font-size:21px}
+  .facts p{font-size:17px;margin-top:6px;color:rgba(255,255,255,.88)}
+
+  .feed-split{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;margin-top:48px;align-items:start}
+  .fat-num{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(88px,13vw,168px);line-height:.85;color:var(--grain)}
+  .fat-label{font-size:19px;margin-top:14px;max-width:24ch}
+  .vs table{width:100%;border-collapse:collapse;font-size:16px}
+  .vs caption{text-align:left;font-family:var(--display);font-weight:700;font-stretch:105%;font-size:18px;padding-bottom:10px}
+  .vs th,.vs td{padding:11px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.25);vertical-align:top}
+  .vs thead th{font-weight:600;font-size:14px;color:rgba(255,255,255,.8)}
+  .vs tbody th{font-weight:500}
+  .vs .ours{background:rgba(227,167,47,.18);color:var(--white);font-weight:700}
+  .vs thead .ours{color:var(--grain)}
+  .src{font-size:13px;color:rgba(255,255,255,.75);margin-top:12px;max-width:70ch}
+  .btn-sheet{margin-top:36px;border-color:var(--grain);background:var(--grain);color:var(--ink)}
+  .btn-sheet:hover{background:transparent;color:var(--grain)}
+
+  /* Two ways in (suppliers) */
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border:3px solid var(--ink)}
+  .ways div{padding:26px 28px}
+  .ways div+div{border-left:3px solid var(--ink)}
+  .ways h3{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:24px}
+  .ways p{margin-top:6px;color:var(--muted);font-size:17px}
+
+  /* Why it matters */
+  .why{background:var(--concrete)}
+  .why-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:48px;align-items:start}
+  .stat{padding:20px 0;border-top:2px solid var(--ink)}
+  .stat-num{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(64px,8vw,96px);line-height:.9}
+  .stat p:last-child{font-size:18px;margin-top:8px;max-width:34ch}
+  .src-dark{font-size:13px;color:var(--muted);margin-top:8px}
+  .scale-title{font-family:var(--display);font-weight:800;font-stretch:110%;font-size:22px;margin-bottom:12px}
+  .scale{list-style:none;counter-reset:w}
+  .scale li{counter-increment:w;display:flex;align-items:center;gap:14px;padding:10px 14px;border-bottom:1px solid #d3d9d6;font-weight:500}
+  .scale li::before{content:counter(w);font-family:var(--display);font-weight:800;width:22px;color:var(--muted)}
+  .scale li.us{background:var(--grain);font-weight:700;border-bottom-color:var(--grain)}
+  .scale li.us::before{color:var(--ink)}
+  .scale li.us span{margin-left:auto;font-family:var(--display);font-weight:800;font-stretch:110%;font-size:15px}
+  .scale li.bad{color:#8a3b2e}
+  .esg{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;padding-top:28px;border-top:2px solid var(--ink)}
+  .esg h3{font-family:var(--display);font-weight:700;font-stretch:108%;font-size:21px}
+  .esg p{font-size:17px;color:var(--muted);margin-top:6px}
+
+  /* Contact */
+  .contact{background:var(--ink);color:var(--white)}
+  .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:40px}
+  .contact dl{display:grid;grid-template-columns:auto 1fr;gap:14px 24px;font-size:19px}
+  .contact dt{color:var(--grain);font-weight:600}
+  .contact dd a{text-decoration-color:var(--grain);text-underline-offset:4px}
+  .contact dd a:hover{color:var(--grain)}
+  .contact .note{font-size:17px;opacity:.85;max-width:44ch}
+  .contact .btn{border-color:var(--grain);margin-top:24px}
+  .contact .btn-grain{background:var(--grain);color:var(--ink)}
+  .contact .btn-grain:hover{background:transparent;color:var(--grain)}
+  footer{background:var(--ink);color:rgba(255,255,255,.6);font-size:14px;padding:24px 0 36px;border-top:1px solid rgba(255,255,255,.12)}
+
+  @media (max-width:860px){
+    .split,.contact .grid,.feed-split,.why-split{grid-template-columns:1fr;gap:40px}
+    .esg{grid-template-columns:1fr;gap:24px}
+    .ways{grid-template-columns:1fr}
+    .ways div+div{border-left:0;border-top:3px solid var(--ink)}
+    .vs{overflow-x:auto}
+    .facts{grid-template-columns:1fr}
+    .facts div{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+  }
+  @media (max-width:640px){
+    body{font-size:17px}
+    .wrap{padding:0 16px}
+    .hero{padding-top:48px}
+    section{padding:64px 0}
+    .flow ol{grid-template-columns:1fr}
+    .flow li,.flow li:first-child{border-left:0;padding:18px 0;border-top:1px solid rgba(255,255,255,.18)}
+    .flow li:first-child{border-top:0}
+    .flow li:not(:last-child)::after{display:none}
+    .take ul{columns:1}
+    .contact dl{grid-template-columns:1fr;gap:2px}
+    .contact dd{margin-bottom:12px}
+    .top-call .num{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">CA Cattle <span>Bakery Recycling</span></a>
+    <a class="top-call" href="tel:+13253472580">Call <span class="num">325-347-2580</span></a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Your bakery waste is cattle feed.</h1>
+      <p class="lede">We buy bread, chips, tortillas, noodles and other food by-products, picked up at your plant or dropped off at ours, and turn them into feed for Texas cattle.</p>
+      <div class="actions">
+        <a class="btn btn-dark" href="#suppliers">Sell us your by-products</a>
+        <a class="btn btn-line" href="#feeders">Buy feed</a>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="wrap">
+        <ol>
+          <li><b>Your plant</b><span>Out-of-spec product, trim, scrap and returns</span></li>
+          <li><b>Our plant in San Antonio</b><span>Sorted, blended and processed</span></li>
+          <li><b>Cattle feeders</b><span>High-energy feed instead of a landfill</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <section class="suppliers" id="suppliers">
+    <div class="wrap">
+      <h2>For bakeries and food plants</h2>
+      <p class="intro">Stop paying to throw product away. We pay for usable by-products. We can pick them up at your dock, or you can drop them off at our plant.</p>
+
+      <div class="split">
+        <ol class="steps">
+          <li><div><h3>Call or email us</h3><p>Tell us what you make, roughly how much by-product you have and where you're located.</p></div></li>
+          <li><div><h3>We set the price</h3><p>Our price is tied to the corn market, so you get a fair rate that moves with feed values.</p></div></li>
+          <li><div><h3>We get it moving</h3><p>We spot a trailer at your dock, or you drop loads at our plant. Whichever works for you.</p></div></li>
+          <li><div><h3>You get paid monthly</h3><p>Every load is weighed and logged. You get a statement and a check each month.</p></div></li>
+        </ol>
+
+        <div class="take">
+          <h3>What we take</h3>
+          <ul>
+            <li>Bread and buns</li>
+            <li>Chips and snacks</li>
+            <li>Tortillas</li>
+            <li>Pasta and noodles</li>
+            <li>Ramen</li>
+            <li>Flour</li>
+            <li>Wet dough</li>
+            <li>Nut by-products</li>
+            <li>Corn by-products</li>
+            <li>Wheat and rice by-products</li>
+          </ul>
+          <p>Not sure if yours qualifies? Call us.</p>
+        </div>
+      </div>
+
+      <div class="ways">
+        <div><h3>We pick it up</h3><p>We spot a trailer at your dock and swap it when it's full. Best for steady volume.</p></div>
+        <div><h3>You drop it off</h3><p>Bring loads straight to our plant at 902 Monterey Street in San Antonio, Monday to Friday 8 to 5 or Saturday 8 to noon. Call ahead and we'll have you weighed and unloaded.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <h2>Good for the planet, good for your report card</h2>
+      <p class="intro">Sending by-products to cattle instead of a landfill is one of the best things a food plant can do for its environmental numbers, and it's simple to show customers, auditors and corporate.</p>
+
+      <div class="why-split">
+        <div>
+          <div class="stat"><p class="stat-num">24%</p><p>of everything in U.S. landfills is food waste.</p></div>
+          <div class="stat"><p class="stat-num">58%</p><p>of landfill methane comes from that food waste. Methane traps far more heat than CO&#8322;.</p></div>
+          <p class="src-dark">Source: U.S. EPA, <i>Quantifying Methane Emissions from Landfilled Food Waste</i> (2023) and <i>Advancing Sustainable Materials Management</i>.</p>
+        </div>
+
+        <div>
+          <h3 class="scale-title">EPA's Wasted Food Scale, simplified, best to worst</h3>
+          <ol class="scale">
+            <li>Prevent waste</li>
+            <li>Donate or upcycle</li>
+            <li class="us">Feed animals <span>That's us</span></li>
+            <li>Compost</li>
+            <li>Anaerobic digestion</li>
+            <li>Land application</li>
+            <li>Incineration</li>
+            <li class="bad">Landfill</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="esg">
+        <div><h3>Diversion you can count</h3><p>Every load is weighed. Your monthly statement shows the tons you kept out of the landfill, ready for sustainability and ESG reporting.</p></div>
+        <div><h3>Lower disposal costs</h3><p>We pay for usable product. A landfill charges you to take it.</p></div>
+        <div><h3>A story customers like</h3><p>"Our leftovers feed Texas cattle" is easy to explain and easy to verify.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feeders" id="feeders">
+    <div class="wrap">
+      <h2>For cattle feeders: Bakery Feed Mix</h2>
+      <p class="intro">A high-energy, high-fat corn replacement. It's milled to 1&Prime; or less and arrives ready to mix and feed, with no rolling, flaking or grinding.</p>
+
+      <div class="feed-split">
+        <div class="fat">
+          <p class="fat-num">~16%</p>
+          <p class="fat-label">crude fat, dry-matter basis. About four times the fat of corn.</p>
+        </div>
+        <div class="vs">
+          <table>
+            <caption>Head to head with corn (dry-matter basis)</caption>
+            <thead>
+              <tr><th scope="col"></th><th scope="col" class="ours">Our bakery feed</th><th scope="col">Dry-rolled corn</th><th scope="col">Steam-flaked corn</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Crude fat</th><td class="ours">~16%</td><td>~4%</td><td>~4%</td></tr>
+              <tr><th scope="row">TDN (energy)</th><td class="ours">~94%</td><td>88%</td><td>~95%</td></tr>
+              <tr><th scope="row">Crude protein</th><td class="ours">~10%</td><td>~9%</td><td>~9%</td></tr>
+              <tr><th scope="row">Processing before feeding</th><td class="ours">None</td><td>Roll</td><td>Steam &amp; flake</td></tr>
+            </tbody>
+          </table>
+          <p class="src">Bakery values from current-year SDK Laboratories (Hutchinson, KS) analysis. Corn values per NASEM <i>Nutrient Requirements of Beef Cattle</i> (2016). Delivers at ~81% dry matter, under 1% paper and plastic. Best balanced with your nutritionist.</p>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div><h3>Lab-verified, load to load</h3><p>Routine analysis through SDK Laboratories. Samples and full lab sheets on request.</p></div>
+        <div><h3>Delivered or pickup</h3><p>Multiple loads a week. We haul to your yard, or you pick up at our plant.</p></div>
+        <div><h3>Priced per ton</h3><p>Call for current pricing and availability.</p></div>
+      </div>
+      <a class="btn btn-sheet" href="BRD_Bakery_Feed_SellSheet.pdf" download>Download the feed sell sheet (PDF)</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Talk to Chad</h2>
+      <div class="grid">
+        <dl>
+          <dt>Phone</dt><dd><a href="tel:+13253472580">325-347-2580</a></dd>
+          <dt>Email</dt><dd><a href="mailto:chadcrocker@cacattlebrd.com">chadcrocker@cacattlebrd.com</a></dd>
+          <dt>Hours</dt><dd>Mon to Fri, 8 am to 5 pm<br>Sat, 8 am to noon<br>Closed Sunday</dd>
+          <dt>Plant</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=902+Monterey+St+San+Antonio+TX+78207">902 Monterey Street<br>San Antonio, TX 78207</a></dd>
+        </dl>
+        <div>
+          <p class="note">Southwest of the Adult Detention Center, off Comal Street.</p>
+          <a class="btn btn-grain" href="mailto:chadcrocker@cacattlebrd.com?subject=Bakery%20by-products">Email us about your by-products</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">CA Cattle Company, Ltd., Bakery Recycling Division, San Antonio, Texas</div>
+</footer>
+
+</body>
+</html>
